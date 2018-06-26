@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<controls xmlns="http://scap.nist.gov/schema/sp800-53/2.0"
+    xmlns:controls="http://scap.nist.gov/schema/sp800-53/feed/2.0"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    pub_date="2015-02-03T10:11:18.645-05:00"
+    xsi:schemaLocation="http://scap.nist.gov/schema/sp800-53/feed/2.0 http://scap.nist.gov/schema/sp800-53/feed/2.0/sp800-53-feed_2.0.xsd">    
+<!--     <control>
+        <family>ACCESS CONTROL</family>
+        <number>AC-1</number>
+        <title>ACCESS CONTROL POLICY AND PROCEDURES</title>
+        <priority>P1</priority>
+        <baseline-impact>LOW</baseline-impact>
+        <baseline-impact>MODERATE</baseline-impact>
+        <baseline-impact>HIGH</baseline-impact>
+        <statement>
+            <description>The organization:</description>
+            <statement>
+                <number>AC-1a.</number>
+                <description>Develops, documents, and disseminates to [Assignment: organization-defined personnel or roles]:</description>
+                <statement>
+                    <number>AC-1a.1.</number>
+                    <description>An access control policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and</description>
+                </statement>
+                <statement>
+                    <number>AC-1a.2.</number>
+                    <description>Procedures to facilitate the implementation of the access control policy and associated access controls; and</description>
+                </statement>
+            </statement>
+            <statement>
+                <number>AC-1b.</number>
+                <description>Reviews and updates the current:</description>
+                <statement>
+                    <number>AC-1b.1.</number>
+                    <description>Access control policy [Assignment: organization-defined frequency]; and</description>
+                </statement>
+                <statement>
+                    <number>AC-1b.2.</number>
+                    <description>Access control procedures [Assignment: organization-defined frequency].</description>
+                </statement>
+            </statement>
+        </statement>
+        <supplemental-guidance>
+            <description>This control addresses the establishment of policy and procedures for the effective implementation of selected security controls and control enhancements in the AC family. Policy and procedures reflect applicable federal laws, Executive Orders, directives, regulations, policies, standards, and guidance. Security program policies and procedures at the organization level may make the need for system-specific policies and procedures unnecessary. The policy can be included as part of the general information security policy for organizations or conversely, can be represented by multiple policies reflecting the complex nature of certain organizations. The procedures can be established for the security program in general and for particular information systems, if needed. The organizational risk management strategy is a key factor in establishing policy and procedures.</description>
+            <related>PM-9</related>
+        </supplemental-guidance>
+        <references>
+            <reference>
+                <item xml:lang="en-US" href="http://csrc.nist.gov/publications/PubsSPs.html#800-12">NIST Special Publication 800-12</item>
+            </reference>
+            <reference>
+                <item xml:lang="en-US" href="http://csrc.nist.gov/publications/PubsSPs.html#800-100">NIST Special Publication 800-100</item>
+            </reference>
+        </references>
+    </control> -->
+<!--    <control>
+        <family>ACCESS CONTROL</family>
+        <number>AC-4</number>
+        <title>INFORMATION FLOW ENFORCEMENT</title>
+        <priority>P1</priority>
+        <baseline-impact>MODERATE</baseline-impact>
+        <baseline-impact>HIGH</baseline-impact>
+        <statement>
+            <description>The information system enforces approved authorizations for controlling the flow of information within the system and between interconnected systems based on [Assignment: organization-defined information flow control policies].</description>
+        </statement>
+        <supplemental-guidance>
+            <description>Information flow control regulates where information is allowed to travel within an information system and between information systems (as opposed to who is allowed to access the information) and without explicit regard to subsequent accesses to that information. Flow control restrictions include, for example, keeping export-controlled information from being transmitted in the clear to the Internet, blocking outside traffic that claims to be from within the organization, restricting web requests to the Internet that are not from the internal web proxy server, and limiting information transfers between organizations based on data structures and content. Transferring information between information systems representing different security domains with different security policies introduces risk that such transfers violate one or more domain security policies. In such situations, information owners/stewards provide guidance at designated policy enforcement points between interconnected systems. Organizations consider mandating specific architectural solutions when required to enforce specific security policies. Enforcement includes, for example: (i) prohibiting information transfers between interconnected systems (i.e., allowing access only); (ii) employing hardware mechanisms to enforce one-way information flows; and (iii) implementing trustworthy regrading mechanisms to reassign security attributes and security labels.
+            Organizations commonly employ information flow control policies and enforcement mechanisms to control the flow of information between designated sources and destinations (e.g., networks, individuals, and devices) within information systems and between interconnected systems. Flow control is based on the characteristics of the information and/or the information path. Enforcement occurs, for example, in boundary protection devices (e.g., gateways, routers, guards, encrypted tunnels, firewalls) that employ rule sets or establish configuration settings that restrict information system services, provide a packet-filtering capability based on header information, or message-filtering capability based on message content (e.g., implementing key word searches or using document characteristics). Organizations also consider the trustworthiness of filtering/inspection mechanisms (i.e., hardware, firmware, and software components) that are critical to information flow enforcement. Control enhancements 3 through 22 primarily address cross-domain solution needs which focus on more advanced filtering techniques, in-depth analysis, and stronger flow enforcement mechanisms implemented in cross-domain products, for example, high-assurance guards. Such capabilities are generally not available in commercial off-the-shelf information technology products.</description>
+            <related>AC-3</related>
+            <related>AC-17</related>
+            <related>AC-19</related>
+            <related>AC-21</related>
+            <related>CM-6</related>
+            <related>CM-7</related>
+            <related>SA-8</related>
+            <related>SC-2</related>
+            <related>SC-5</related>
+            <related>SC-7</related>
+            <related>SC-18</related>
+        </supplemental-guidance>
+        <control-enhancements>
+            <control-enhancement>
+                <number>AC-4 (1)</number>
+                <title>OBJECT SECURITY ATTRIBUTES</title>
+                <statement>
+                    <description>The information system uses [Assignment: organization-defined security attributes] associated with [Assignment: organization-defined information, source, and destination objects] to enforce [Assignment: organization-defined information flow control policies] as a basis for flow control decisions.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Information flow enforcement mechanisms compare security attributes associated with information (data content and data structure) and source/destination objects, and respond appropriately (e.g., block, quarantine, alert administrator) when the mechanisms encounter information flows not explicitly allowed by information flow policies. For example, an information object labeled Secret would be allowed to flow to a destination object labeled Secret, but an information object labeled Top Secret would not be allowed to flow to a destination object labeled Secret. Security attributes can also include, for example, source and destination addresses employed in traffic filter firewalls. Flow enforcement using explicit security attributes can be used, for example, to control the release of certain types of information.</description>
+                    <related>AC-16</related>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (2)</number>
+                <title>PROCESSING DOMAINS</title>
+                <statement>
+                    <description>The information system uses protected processing domains to enforce [Assignment: organization-defined information flow control policies] as a basis for flow control decisions.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Within information systems, protected processing domains are processing spaces that have controlled interactions with other processing spaces, thus enabling control of information flows between these spaces and to/from data/information objects. A protected processing domain can be provided, for example, by implementing domain and type enforcement. In domain and type enforcement, information system processes are assigned to domains; information is identified by types; and information flows are controlled based on allowed information accesses (determined by domain and type), allowed signaling among domains, and allowed process transitions to other domains.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (3)</number>
+                <title>DYNAMIC INFORMATION FLOW CONTROL</title>
+                <statement>
+                    <description>The information system enforces dynamic information flow control based on [Assignment: organization-defined policies].</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Organizational policies regarding dynamic information flow control include, for example, allowing or disallowing information flows based on changing conditions or mission/operational considerations. Changing conditions include, for example, changes in organizational risk tolerance due to changes in the immediacy of mission/business needs, changes in the threat environment, and detection of potentially harmful or adverse events.</description>
+                    <related>SI-4</related>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (4)</number>
+                <title>CONTENT CHECK ENCRYPTED INFORMATION</title>
+                <statement>
+                    <description>The information system prevents encrypted information from bypassing content-checking mechanisms by [Selection (one or more): decrypting the information; blocking the flow of the encrypted information; terminating communications sessions attempting to pass encrypted information; [Assignment: organization-defined procedure or method]].</description>
+                </statement>
+                <supplemental-guidance>
+                    <related>SI-4</related>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (5)</number>
+                <title>EMBEDDED DATA TYPES</title>
+                <statement>
+                    <description>The information system enforces [Assignment: organization-defined limitations] on embedding data types within other data types.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Embedding data types within other data types may result in reduced flow control effectiveness. Data type embedding includes, for example, inserting executable files as objects within word processing files, inserting references or descriptive information into a media file, and compressed or archived data types that may include multiple embedded data types. Limitations on data type embedding consider the levels of embedding and prohibit levels of data type embedding that are beyond the capability of the inspection tools.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (6)</number>
+                <title>METADATA</title>
+                <statement>
+                    <description>The information system enforces information flow control based on [Assignment: organization-defined metadata].</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Metadata is information used to describe the characteristics of data. Metadata can include structural metadata describing data structures (e.g., data format, syntax, and semantics) or descriptive metadata describing data contents (e.g., age, location, telephone number). Enforcing allowed information flows based on metadata enables simpler and more effective flow control. Organizations consider the trustworthiness of metadata with regard to data accuracy (i.e., knowledge that the metadata values are correct with respect to the data), data integrity (i.e., protecting against unauthorized changes to metadata tags), and the binding of metadata to the data payload (i.e., ensuring sufficiently strong binding techniques with appropriate levels of assurance).</description>
+                    <related>AC-16</related>
+                    <related>SI-7</related>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (7)</number>
+                <title>ONE-WAY FLOW MECHANISMS</title>
+                <statement>
+                    <description>The information system enforces [Assignment: organization-defined one-way information flows] using hardware mechanisms.</description>
+                </statement>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (8)</number>
+                <title>SECURITY POLICY FILTERS</title>
+                <statement>
+                    <description>The information system enforces information flow control using [Assignment: organization-defined security policy filters] as a basis for flow control decisions for [Assignment: organization-defined information flows].</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Organization-defined security policy filters can address data structures and content. For example, security policy filters for data structures can check for maximum file lengths, maximum field sizes, and data/file types (for structured and unstructured data). Security policy filters for data content can check for specific words (e.g., dirty/clean word filters), enumerated values or data value ranges, and hidden content. Structured data permits the interpretation of data content by applications. Unstructured data typically refers to digital information without a particular data structure or with a data structure that does not facilitate the development of rule sets to address the particular sensitivity of the information conveyed by the data or the associated flow enforcement decisions. Unstructured data consists of: (i) bitmap objects that are inherently non language-based (i.e., image, video, or audio files); and (ii) textual objects that are based on written or printed languages (e.g., commercial off-the-shelf word processing documents, spreadsheets, or emails). Organizations can implement more than one security policy filter to meet information flow control objectives (e.g., employing clean word lists in conjunction with dirty word lists may help to reduce false positives).</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (9)</number>
+                <title>HUMAN REVIEWS</title>
+                <statement>
+                    <description>The information system enforces the use of human reviews for [Assignment: organization-defined information flows] under the following conditions: [Assignment: organization-defined conditions].</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Organizations define security policy filters for all situations where automated flow control decisions are possible. When a fully automated flow control decision is not possible, then a human review may be employed in lieu of, or as a complement to, automated security policy filtering. Human reviews may also be employed as deemed necessary by organizations.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (10)</number>
+                <title>ENABLE / DISABLE SECURITY POLICY FILTERS</title>
+                <statement>
+                    <description>The information system provides the capability for privileged administrators to enable/disable [Assignment: organization-defined security policy filters] under the following conditions: [Assignment: organization-defined conditions].</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>For example, as allowed by the information system authorization, administrators can enable security policy filters to accommodate approved data types.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (11)</number>
+                <title>CONFIGURATION OF SECURITY POLICY FILTERS</title>
+                <statement>
+                    <description>The information system provides the capability for privileged administrators to configure [Assignment: organization-defined security policy filters] to support different security policies.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>For example, to reflect changes in security policies, administrators can change the list of �dirty words� that security policy mechanisms check in accordance with the definitions provided by organizations.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (12)</number>
+                <title>DATA TYPE IDENTIFIERS</title>
+                <statement>
+                    <description>The information system, when transferring information between different security domains, uses [Assignment: organization-defined data type identifiers] to validate data essential for information flow decisions.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Data type identifiers include, for example, filenames, file types, file signatures/tokens, and multiple internal file signatures/tokens. Information systems may allow transfer of data only if compliant with data type format specifications.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (13)</number>
+                <title>DECOMPOSITION INTO POLICY-RELEVANT SUBCOMPONENTS</title>
+                <statement>
+                    <description>The information system, when transferring information between different security domains, decomposes information into [Assignment: organization-defined policy-relevant subcomponents] for submission to policy enforcement mechanisms.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Policy enforcement mechanisms apply filtering, inspection, and/or sanitization rules to the policy-relevant subcomponents of information to facilitate flow enforcement prior to transferring such information to different security domains. Parsing transfer files facilitates policy decisions on source, destination, certificates, classification, attachments, and other security-related component differentiators.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (14)</number>
+                <title>SECURITY POLICY FILTER CONSTRAINTS</title>
+                <statement>
+                    <description>The information system, when transferring information between different security domains, implements [Assignment: organization-defined security policy filters] requiring fully enumerated formats that restrict data structure and content.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Data structure and content restrictions reduce the range of potential malicious and/or unsanctioned content in cross-domain transactions. Security policy filters that restrict data structures include, for example, restricting file sizes and field lengths. Data content policy filters include, for example: (i) encoding formats for character sets (e.g., Universal Character Set Transformation Formats, American Standard Code for Information Interchange); (ii) restricting character data fields to only contain alpha-numeric characters; (iii) prohibiting special characters; and (iv) validating schema structures.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (15)</number>
+                <title>DETECTION OF UNSANCTIONED INFORMATION</title>
+                <statement>
+                    <description>The information system, when transferring information between different security domains, examines the information for the presence of [Assignment: organized-defined unsanctioned information] and prohibits the transfer of such information in accordance with the [Assignment: organization-defined security policy].</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Detection of unsanctioned information includes, for example, checking all information to be transferred for malicious code and dirty words.</description>
+                    <related>SI-3</related>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (16)</number>
+                <title>INFORMATION TRANSFERS ON INTERCONNECTED SYSTEMS</title>
+                <withdrawn>
+                    <incorporated-into>AC-4</incorporated-into>
+                </withdrawn>
+                <statement>
+                    <description>[Withdrawn: Incorporated into AC-4].</description>
+                </statement>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (17)</number>
+                <title>DOMAIN AUTHENTICATION</title>
+                <statement>
+                    <description>The information system uniquely identifies and authenticates source and destination points by [Selection (one or more): organization, system, application, individual] for information transfer.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Attribution is a critical component of a security concept of operations. The ability to identify source and destination points for information flowing in information systems, allows the forensic reconstruction of events when required, and encourages policy compliance by attributing policy violations to specific organizations/individuals. Successful domain authentication requires that information system labels distinguish among systems, organizations, and individuals involved in preparing, sending, receiving, or disseminating information.</description>
+                    <related>IA-2</related>
+                    <related>IA-3</related>
+                    <related>IA-4</related>
+                    <related>IA-5</related>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (18)</number>
+                <title>SECURITY ATTRIBUTE BINDING</title>
+                <statement>
+                    <description>The information system binds security attributes to information using [Assignment: organization-defined binding techniques] to facilitate information flow policy enforcement.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Binding techniques implemented by information systems affect the strength of security attribute binding to information. Binding strength and the assurance associated with binding techniques play an important part in the trust organizations have in the information flow enforcement process. The binding techniques affect the number and degree of additional reviews required by organizations.</description>
+                    <related>AC-16</related>
+                    <related>SC-16</related>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (19)</number>
+                <title>VALIDATION OF METADATA</title>
+                <statement>
+                    <description>The information system, when transferring information between different security domains, applies the same security policy filtering to metadata as it applies to data payloads.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>This control enhancement requires the validation of metadata and the data to which the metadata applies. Some organizations distinguish between metadata and data payloads (i.e., only the data to which the metadata is bound). Other organizations do not make such distinctions, considering metadata and the data to which the metadata applies as part of the payload. All information (including metadata and the data to which the metadata applies) is subject to filtering and inspection.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (20)</number>
+                <title>APPROVED SOLUTIONS</title>
+                <statement>
+                    <description>The organization employs [Assignment: organization-defined solutions in approved configurations] to control the flow of [Assignment: organization-defined information] across security domains.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Organizations define approved solutions and configurations in cross-domain policies and guidance in accordance with the types of information flows across classification boundaries. The Unified Cross Domain Management Office (UCDMO) provides a baseline listing of approved cross-domain solutions.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (21)</number>
+                <title>PHYSICAL / LOGICAL SEPARATION OF INFORMATION FLOWS</title>
+                <statement>
+                    <description>The information system separates information flows logically or physically using [Assignment: organization-defined mechanisms and/or techniques] to accomplish [Assignment: organization-defined required separations by types of information].</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Enforcing the separation of information flows by type can enhance protection by ensuring that information is not commingled while in transit and by enabling flow control by transmission paths perhaps not otherwise achievable. Types of separable information include, for example, inbound and outbound communications traffic, service requests and responses, and information of differing security categories.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>AC-4 (22)</number>
+                <title>ACCESS ONLY</title>
+                <statement>
+                    <description>The information system provides access from a single device to computing platforms, applications, or data residing on multiple different security domains, while preventing any information flow between the different security domains.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>The information system, for example, provides a desktop for users to access each connected security domain without providing any mechanisms to allow transfer of information between the different security domains.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+        </control-enhancements>
+    </control> -->
+    <control>
+        <family>SYSTEM AND SERVICES ACQUISITION</family>
+        <number>SA-15</number>
+        <title>DEVELOPMENT PROCESS, STANDARDS, AND TOOLS</title>
+        <priority>P2</priority>
+        <baseline-impact>HIGH</baseline-impact>
+        <statement>
+            <description>The organization:</description>
+            <statement>
+                <number>SA-15a.</number>
+                <description>Requires the developer of the information system, system component, or information system service to follow a documented development process that:</description>
+                <statement>
+                    <number>SA-15a.1.</number>
+                    <description>Explicitly addresses security requirements;</description>
+                </statement>
+                <statement>
+                    <number>SA-15a.2.</number>
+                    <description>Identifies the standards and tools used in the development process;</description>
+                </statement>
+                <statement>
+                    <number>SA-15a.3.</number>
+                    <description>Documents the specific tool options and tool configurations used in the development process; and</description>
+                </statement>
+                <statement>
+                    <number>SA-15a.4.</number>
+                    <description>Documents, manages, and ensures the integrity of changes to the process and/or tools used in development; and</description>
+                </statement>
+            </statement>
+            <statement>
+                <number>SA-15b.</number>
+                <description>Reviews the development process, standards, tools, and tool options/configurations [Assignment: organization-defined frequency] to determine if the process, standards, tools, and tool options/configurations selected and employed can satisfy [Assignment: organization-defined security requirements].</description>
+            </statement>
+        </statement>
+        <supplemental-guidance>
+            <description>Development tools include, for example, programming languages and computer-aided design (CAD) systems. Reviews of development processes can include, for example, the use of maturity models to determine the potential effectiveness of such processes. Maintaining the integrity of changes to tools and processes enables accurate supply chain risk assessment and mitigation, and requires robust configuration control throughout the life cycle (including design, development, transport, delivery, integration, and maintenance) to track authorized changes and prevent unauthorized changes.</description>
+            <related>SA-3</related>
+            <related>SA-8</related>
+        </supplemental-guidance>
+        <control-enhancements>
+            <control-enhancement>
+                <number>SA-15 (1)</number>
+                <title>QUALITY METRICS</title>
+                <statement>
+                    <description>The organization requires the developer of the information system, system component, or information system service to:</description>
+                    <statement>
+                        <number>SA-15 (1)(a)</number>
+                        <description>Define quality metrics at the beginning of the development process; and</description>
+                    </statement>
+                    <statement>
+                        <number>SA-15 (1)(b)</number>
+                        <description>Provide evidence of meeting the quality metrics [Selection (one or more): [Assignment: organization-defined frequency]; [Assignment: organization-defined program review milestones]; upon delivery].</description>
+                    </statement>
+                </statement>
+                <supplemental-guidance>
+                    <description>Organizations use quality metrics to establish minimum acceptable levels of information system quality. Metrics may include quality gates which are collections of completion criteria or sufficiency standards representing the satisfactory execution of particular phases of the system development project. A quality gate, for example, may require the elimination of all compiler warnings or an explicit determination that the warnings have no impact on the effectiveness of required security capabilities. During the execution phases of development projects, quality gates provide clear, unambiguous indications of progress. Other metrics apply to the entire development project. These metrics can include defining the severity thresholds of vulnerabilities, for example, requiring no known vulnerabilities in the delivered information system with a Common Vulnerability Scoring System (CVSS) severity of Medium or High.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>SA-15 (2)</number>
+                <title>SECURITY TRACKING TOOLS</title>
+                <statement>
+                    <description>The organization requires the developer of the information system, system component, or information system service to select and employ a security tracking tool for use during the development process.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Information system development teams select and deploy security tracking tools, including, for example, vulnerability/work item tracking systems that facilitate assignment, sorting, filtering, and tracking of completed work items or tasks associated with system development processes.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>SA-15 (3)</number>
+                <title>CRITICALITY ANALYSIS</title>
+                <statement>
+                    <description>The organization requires the developer of the information system, system component, or information system service to perform a criticality analysis at [Assignment: organization-defined breadth/depth] and at [Assignment: organization-defined decision points in the system development life cycle].</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>This control enhancement provides developer input to the criticality analysis performed by organizations in SA-14. Developer input is essential to such analysis because organizations may not have access to detailed design documentation for information system components that are developed as commercial off-the-shelf (COTS) information technology products (e.g., functional specifications, high-level designs, low-level designs, and source code/hardware schematics).</description>
+                    <related>SA-4</related>
+                    <related>SA-14</related>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>SA-15 (4)</number>
+                <title>THREAT MODELING / VULNERABILITY ANALYSIS</title>
+                <statement>
+                    <description>The organization requires that developers perform threat modeling and a vulnerability analysis for the information system at [Assignment: organization-defined breadth/depth] that:</description>
+                    <statement>
+                        <number>SA-15 (4)(a)</number>
+                        <description>Uses [Assignment: organization-defined information concerning impact, environment of operations, known or assumed threats, and acceptable risk levels];</description>
+                    </statement>
+                    <statement>
+                        <number>SA-15 (4)(b)</number>
+                        <description>Employs [Assignment: organization-defined tools and methods]; and</description>
+                    </statement>
+                    <statement>
+                        <number>SA-15 (4)(c)</number>
+                        <description>Produces evidence that meets [Assignment: organization-defined acceptance criteria].</description>
+                    </statement>
+                </statement>
+                <supplemental-guidance>
+                    <related>SA-4</related>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>SA-15 (5)</number>
+                <title>ATTACK SURFACE REDUCTION</title>
+                <statement>
+                    <description>The organization requires the developer of the information system, system component, or information system service to reduce attack surfaces to [Assignment: organization-defined thresholds].</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Attack surface reduction is closely aligned with developer threat and vulnerability analyses and information system architecture and design. Attack surface reduction is a means of reducing risk to organizations by giving attackers less opportunity to exploit weaknesses or deficiencies (i.e., potential vulnerabilities) within information systems, information system components, and information system services. Attack surface reduction includes, for example, applying the principle of least privilege, employing layered defenses, applying the principle of least functionality (i.e., restricting ports, protocols, functions, and services), deprecating unsafe functions, and eliminating application programming interfaces (APIs) that are vulnerable to cyber attacks.</description>
+                    <related>CM-7</related>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>SA-15 (6)</number>
+                <title>CONTINUOUS IMPROVEMENT</title>
+                <statement>
+                    <description>The organization requires the developer of the information system, system component, or information system service to implement an explicit process to continuously improve the development process.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Developers of information systems, information system components, and information system services consider the effectiveness/efficiency of current development processes for meeting quality objectives and addressing security capabilities in current threat environments.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>SA-15 (7)</number>
+                <title>AUTOMATED VULNERABILITY ANALYSIS</title>
+                <statement>
+                    <description>The organization requires the developer of the information system, system component, or information system service to:</description>
+                    <statement>
+                        <number>SA-15 (7)(a)</number>
+                        <description>Perform an automated vulnerability analysis using [Assignment: organization-defined tools];</description>
+                    </statement>
+                    <statement>
+                        <number>SA-15 (7)(b)</number>
+                        <description>Determine the exploitation potential for discovered vulnerabilities;</description>
+                    </statement>
+                    <statement>
+                        <number>SA-15 (7)(c)</number>
+                        <description>Determine potential risk mitigations for delivered vulnerabilities; and</description>
+                    </statement>
+                    <statement>
+                        <number>SA-15 (7)(d)</number>
+                        <description>Deliver the outputs of the tools and results of the analysis to [Assignment: organization-defined personnel or roles].</description>
+                    </statement>
+                </statement>
+                <supplemental-guidance>
+                    <related>RA-5</related>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>SA-15 (8)</number>
+                <title>REUSE OF THREAT / VULNERABILITY INFORMATION</title>
+                <statement>
+                    <description>The organization requires the developer of the information system, system component, or information system service to use threat modeling and vulnerability analyses from similar systems, components, or services to inform the current development process.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Analysis of vulnerabilities found in similar software applications can inform potential design or implementation issues for information systems under development. Similar information systems or system components may exist within developer organizations. Authoritative vulnerability information is available from a variety of public and private sector sources including, for example, the National Vulnerability Database.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>SA-15 (9)</number>
+                <title>USE OF LIVE DATA</title>
+                <statement>
+                    <description>The organization approves, documents, and controls the use of live data in development and test environments for the information system, system component, or information system service.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>The use of live data in preproduction environments can result in significant risk to organizations. Organizations can minimize such risk by using test or dummy data during the development and testing of information systems, information system components, and information system services.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>SA-15 (10)</number>
+                <title>INCIDENT RESPONSE PLAN</title>
+                <statement>
+                    <description>The organization requires the developer of the information system, system component, or information system service to provide an incident response plan.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>The incident response plan for developers of information systems, system components, and information system services is incorporated into organizational incident response plans to provide the type of incident response information not readily available to organizations. Such information may be extremely helpful, for example, when organizations respond to vulnerabilities in commercial off-the-shelf (COTS) information technology products.</description>
+                    <related>IR-8</related>
+                </supplemental-guidance>
+            </control-enhancement>
+            <control-enhancement>
+                <number>SA-15 (11)</number>
+                <title>ARCHIVE INFORMATION SYSTEM / COMPONENT</title>
+                <statement>
+                    <description>The organization requires the developer of the information system or system component to archive the system or component to be released or delivered together with the corresponding evidence supporting the final security review.</description>
+                </statement>
+                <supplemental-guidance>
+                    <description>Archiving relevant documentation from the development process can provide a readily available baseline of information that can be helpful during information system/component upgrades or modifications.</description>
+                </supplemental-guidance>
+            </control-enhancement>
+        </control-enhancements>
+    </control>
+</controls>
